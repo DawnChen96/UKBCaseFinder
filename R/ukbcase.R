@@ -139,7 +139,7 @@ ukbcase_diag <- function(icd10=NULL,icd9=NULL,hesin=NULL,hesin_diag10=NULL,
     if(is.null(hesin_diag)){
       hesin_diag <- hesin_diag_2
     }else{
-      hesin_diag <- merge(hesin_diag_1,hesin_diag_2,all=T)
+      hesin_diag <- merge(hesin_diag_1,hesin_diag_2,all=T, by = c("eid","record_id","diag_icd10","epistart"))
       names(hesin_diag) <- c('eid','record_id','diag_icd10','epistart')
     }
   }
@@ -153,7 +153,7 @@ ukbcase_diag <- function(icd10=NULL,icd9=NULL,hesin=NULL,hesin_diag10=NULL,
     if(is.null(hesin_diag)){
       hesin_diag <- hesin_diag_3
     }else{
-      hesin_diag <- merge(hesin_diag,hesin_diag_3,all=T)
+      hesin_diag <- merge(hesin_diag,hesin_diag_3,all=T, by = c("eid","record_id","epistart"))
     }
   }
 
@@ -195,7 +195,7 @@ ukbcase_oper <- function(oper4=NULL,hesin=NULL,hesin_oper4=NULL,
     if(is.null(hesin_oper)){
       hesin_oper <- hesin_oper_2
     }else{
-      hesin_oper <- merge(hesin_oper,hesin_oper_2,all=T)
+      hesin_oper <- merge(hesin_oper,hesin_oper_2,all=T, by = c('eid','record_id','oper4','epistart'))
     }
   }
 
